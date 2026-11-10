@@ -6,4 +6,4 @@ Página de descarga de MB Task, publicada con GitHub Pages.
 - `privacidad.html`: aviso de privacidad (también sirve para la pantalla de consentimiento de Google)
 - `img/`: capturas de la app
 
-Para activar el botón de descarga, edita `DOWNLOAD_URL` al final de `index.html`.
+El instalador está en `descargas/MB-Task-Setup.exe`; el botón de la página apunta ahí. Para una versión nueva, reemplázalo y cambia `VERSION` al final de `index.html`.
