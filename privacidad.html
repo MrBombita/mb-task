@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aviso de privacidad — MB Task</title>
+<meta name="description" content="Qué datos usa MB Task, dónde se guardan y cómo borrarlos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23fff'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='800' font-size='26' text-anchor='middle' fill='%23111'%3EMB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141012;--fg:#f6f0ec;--mute:rgba(246,240,236,.66);--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:radial-gradient(50vw 40vw at 10% 0,rgba(224,151,90,.2),transparent 70%),radial-gradient(40vw 30vw at 90% 10%,rgba(139,92,246,.2),transparent 70%),var(--bg);background-attachment:fixed;color:var(--fg);line-height:1.7;-webkit-font-smoothing:antialiased}
+main{width:min(760px,100% - 32px);margin:0 auto;padding:56px 0 80px}
+a{color:#f6c08e}
+.back{display:inline-block;font-size:14px;color:var(--mute);text-decoration:none;margin-bottom:40px}
+h1{font-size:clamp(32px,6vw,48px);letter-spacing:-.04em;line-height:1.1;margin-bottom:8px}
+.date{color:var(--mute);font-size:14px;margin-bottom:40px}
+h2{font-size:20px;letter-spacing:-.02em;margin:36px 0 10px}
+p,li{color:var(--mute);font-size:16px}
+ul{padding-left:20px;display:grid;gap:6px;margin-top:6px}
+b{color:var(--fg);font-weight:600}
+.box{margin-top:12px;padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04)}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← Volver a MB Task</a>
+  <h1>Aviso de privacidad</h1>
+  <p class="date">Última actualización: 10 de noviembre de 2026</p>
+
+  <p>MB Task es una aplicación de escritorio para organizar tareas, notas y contraseñas. Este aviso explica qué datos usa, dónde se guardan y cómo puedes borrarlos.</p>
+
+  <h2>Lo que se queda en tu PC</h2>
+  <p>Tus tareas, tableros, notas, ajustes y progreso se guardan en una base de datos local dentro de tu computadora. No se envían a ningún servidor.</p>
+  <p>La <b>bóveda de contraseñas</b> se cifra con AES-256-GCM usando una llave que sale de tu contraseña maestra y tus dos respuestas de seguridad. Esa llave nunca se guarda ni se envía a ningún lado, así que nadie más, incluido el equipo de MB Task, puede leer lo que guardas ahí.</p>
+
+  <h2>Si creas una cuenta</h2>
+  <p>La cuenta es opcional. Si decides crearla, usamos <a href="https://supabase.com/privacy" rel="noopener">Supabase</a> para iniciar sesión, y se guardan sólo estos datos:</p>
+  <ul>
+    <li>Tu correo electrónico o número de teléfono.</li>
+    <li>Si entras con Google o Facebook: tu nombre y tu foto de perfil, que esos servicios comparten al aceptar.</li>
+    <li>Datos técnicos de la sesión, como la fecha de tu último inicio de sesión.</li>
+  </ul>
+  <p>Al entrar con Google, MB Task sólo pide acceso a tu <b>correo y perfil básico</b>. No lee tu Gmail, tu Drive ni tus contactos.</p>
+
+  <h2>Lo que no hacemos</h2>
+  <ul>
+    <li>No vendemos ni compartimos tus datos con nadie.</li>
+    <li>No mostramos anuncios.</li>
+    <li>No usamos herramientas de rastreo o analítica dentro de la app.</li>
+  </ul>
+
+  <h2>Cómo borrar tus datos</h2>
+  <p>Para borrar lo que está en tu PC, desinstala MB Task y elimina su carpeta de datos. Para borrar la bóveda, usa <b>Ajustes de la bóveda → Borrar bóveda</b>. Para eliminar tu cuenta, escríbenos y la borramos junto con todos sus datos.</p>
+
+  <h2>Contacto</h2>
+  <div class="box">
+    <p>Para dudas sobre privacidad o para pedir que borremos tu cuenta, abre un reporte en <a href="https://github.com/MrBombita/mb-task/issues" rel="noopener">github.com/MrBombita/mb-task/issues</a>.</p>
+  </div>
+
+  <h2>Cambios</h2>
+  <p>Si este aviso cambia, actualizaremos la fecha de arriba. Los cambios importantes se avisarán dentro de la app.</p>
+</main>
+</body>
+</html>
