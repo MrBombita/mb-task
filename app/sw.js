@@ -1,5 +1,5 @@
 /* MB Task · service worker: la app abre sin internet (los datos ya viven en el celular). */
-const CACHE = 'mbtask-mwb30703';
+const CACHE = 'mbtask-mwb3bvpd';
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './index.html', './manifest.webmanifest', './icons/icon-192.png'])).then(() => self.skipWaiting()));
 });
