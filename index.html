@@ -113,6 +113,26 @@ h2{font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.035em;font
 .dl h2{margin-inline:auto;max-width:16ch}
 .dl .sub{margin-inline:auto}
 .plats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}
+.plat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:760px;margin:34px auto 0;text-align:left}
+.plat{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:22px;transition:transform .2s,background .2s}
+.plat:not([aria-disabled=true]):hover{transform:translateY(-2px);background:var(--glass2)}
+.plat[aria-disabled=true]{cursor:default}
+.plat[aria-disabled=true] .plat-ic,.plat[aria-disabled=true] .plat-tx{opacity:.6}
+.plat-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--glass2);flex-shrink:0}
+.plat-ic svg{width:22px;height:22px}
+.plat-tx{display:flex;flex-direction:column;min-width:0;flex:1}
+.plat-tx small{font-size:12px;color:var(--faint)}
+.plat-tx b{font-size:17px;letter-spacing:-.01em}
+.plat-tx em{font-style:normal;font-size:12.5px;color:var(--mute)}
+.plat-go{font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--glass2);white-space:nowrap}
+.plat:not([aria-disabled=true]) .plat-go[data-ok]{background:var(--fg);color:#140f11}
+.plat[aria-disabled=true] .plat-go{color:var(--faint)}
+.install{max-width:620px;margin:22px auto 0;text-align:left;padding:16px 20px;border-radius:18px}
+.install summary{cursor:pointer;font-weight:600;font-size:15px}
+.install ol{margin:12px 0 6px 20px;display:grid;gap:4px;color:var(--mute);font-size:14px}
+.install p{color:var(--mute);font-size:14px}
+@media (max-width:640px){.plat-grid{grid-template-columns:1fr}.plat-go{padding:7px 12px}}
+
 .note{max-width:620px;margin:32px auto 0;text-align:left;padding:18px 20px;border-radius:18px;font-size:14px;color:var(--mute);background:rgba(224,151,90,.08);border:1px solid rgba(224,151,90,.25)}
 .note b{color:var(--fg)}
 
@@ -134,6 +154,7 @@ footer a:hover{color:var(--fg)}
 
 @media (max-width:900px){
   .nav nav{display:none}
+  .nav nav+.btn{margin-left:auto}
   .bento{grid-template-columns:1fr}.c-4,.c-3,.c-2{grid-column:auto}
   .flow{grid-template-columns:1fr}
   .themes{grid-template-columns:1fr}.tlist{flex-direction:row;overflow-x:auto;padding-bottom:4px}
@@ -174,7 +195,7 @@ footer a:hover{color:var(--fg)}
         </a>
         <a class="btn btn-ghost" href="#funciones">Ver qué hace</a>
       </div>
-      <p class="meta rv">Gratis · Windows 10 y 11 · Funciona sin internet</p>
+      <p class="meta rv">Gratis · Windows, web y celular · Funciona sin internet</p>
 
       <div class="shot glass rv">
         <img src="img/hoy_calido.webp" width="2880" height="1800" alt="Vista Hoy de MB Task con tareas de hoy, mañana y jueves, temporizador de enfoque y medidor de energía" fetchpriority="high">
@@ -255,16 +276,41 @@ footer a:hover{color:var(--fg)}
 
     <div id="descargar" class="dl glass rv">
       <p class="eyebrow">Descarga</p>
-      <h2>Empieza a organizar tu día hoy.</h2>
-      <p class="sub">Instálala, crea tu cuenta con correo o Google, o úsala sin cuenta. Tus datos se quedan en tu PC.</p>
-      <div class="plats">
-        <a class="btn btn-main" id="dlWin" href="#descargar" aria-disabled="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
-          <span>Muy pronto para Windows</span>
+      <h2>Tus tareas, en todos tus dispositivos.</h2>
+      <p class="sub">Entra con la misma cuenta en tu PC y en tu celular: tareas, tableros, notas y contraseñas se sincronizan solos. También puedes usarla sin cuenta.</p>
+
+      <div class="plat-grid">
+        <a class="plat glass" id="dlWin" href="#descargar" aria-disabled="true">
+          <span class="plat-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg></span>
+          <span class="plat-tx"><small>PC</small><b>Windows</b><em id="dlMeta">Preparando el instalador…</em></span>
+          <span class="plat-go" data-ok>Descargar .exe</span>
         </a>
-        <a class="btn btn-ghost" href="app/">Abrir en el celular o navegador</a>
+        <a class="plat glass" href="app/">
+          <span class="plat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
+          <span class="plat-tx"><small>iPhone, Android y navegador</small><b>App web</b><em>Disponible · se instala desde el navegador</em></span>
+          <span class="plat-go" data-ok>Abrir</span>
+        </a>
+        <a class="plat glass" id="dlIos" href="#descargar" aria-disabled="true">
+          <span class="plat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg></span>
+          <span class="plat-tx"><small>iPhone y iPad</small><b>App Store</b><em data-soon>Próximamente</em></span>
+          <span class="plat-go">Muy pronto</span>
+        </a>
+        <a class="plat glass" id="dlAndroid" href="#descargar" aria-disabled="true">
+          <span class="plat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5 18.5 12 6 20.5z"/></svg></span>
+          <span class="plat-tx"><small>Android</small><b>Google Play</b><em data-soon>Próximamente</em></span>
+          <span class="plat-go">Muy pronto</span>
+        </a>
       </div>
-      <p class="meta" id="dlMeta">Estamos preparando el instalador. Vuelve pronto.</p>
+
+      <details class="install glass">
+        <summary>¿Cómo instalo la app web en mi iPhone?</summary>
+        <ol>
+          <li>Abre <b>mrbombita.github.io/mb-task/app</b> en <b>Safari</b>.</li>
+          <li>Toca <b>Compartir</b> y luego <b>Agregar a inicio</b>.</li>
+          <li>Abre MB Task desde el ícono y entra con tu cuenta.</li>
+        </ol>
+        <p>En Android: ábrela en Chrome y toca <b>⋮ → Instalar app</b>.</p>
+      </details>
       <div class="note"><b>Si Windows dice "Windows protegió tu PC":</b> da clic en <b>Más información</b> y luego en <b>Ejecutar de todas formas</b>. Sale porque la app todavía no tiene firma digital de pago; no significa que tenga virus.</div>
     </div>
 
@@ -274,8 +320,8 @@ footer a:hover{color:var(--fg)}
       <div class="faq">
         <details class="glass rv"><summary>¿Cuánto cuesta?</summary><p>Nada. MB Task es gratis.</p></details>
         <details class="glass rv"><summary>¿Necesito internet?</summary><p>No. Tareas, notas, calendario y la bóveda funcionan sin conexión. Sólo necesitas internet para iniciar sesión con tu cuenta.</p></details>
-        <details class="glass rv"><summary>¿Necesito crear una cuenta?</summary><p>No es obligatorio: puedes elegir "Seguir sin cuenta" y todo se guarda en tu PC. La cuenta sirve para tener tus datos también en la futura app del celular.</p></details>
-        <details class="glass rv"><summary>¿Hay versión para celular?</summary><p>Sí: abre <a href="app/" style="text-decoration:underline">mrbombita.github.io/mb-task/app</a> en tu celular. En iPhone, en Safari toca <b>Compartir → Agregar a inicio</b> y queda como una app. Entra con tu misma cuenta y verás las mismas tareas, tableros y notas que en tu PC.</p></details>
+        <details class="glass rv"><summary>¿Necesito crear una cuenta?</summary><p>No es obligatorio: puedes elegir "Seguir sin cuenta" y todo se guarda en ese dispositivo. Con cuenta, tus tareas, notas y contraseñas se sincronizan entre tu PC y tu celular.</p></details>
+        <details class="glass rv"><summary>¿Hay versión para celular?</summary><p>Sí. Las apps para App Store y Google Play vienen pronto; mientras, abre <a href="app/" style="text-decoration:underline">mrbombita.github.io/mb-task/app</a> en tu celular. En iPhone, en Safari toca <b>Compartir → Agregar a inicio</b> y queda como una app. Entra con tu misma cuenta y verás las mismas tareas, tableros y notas que en tu PC.</p></details>
         <details class="glass rv"><summary>¿Qué pasa si olvido la contraseña de la bóveda?</summary><p>No se puede recuperar. Es a propósito: sin tu contraseña y tus dos respuestas, nadie puede abrirla. Anótalas en un lugar seguro.</p></details>
       </div>
     </section>
@@ -288,18 +334,22 @@ footer a:hover{color:var(--fg)}
 </div>
 
 <script>
-/* ── Pon aquí la liga del instalador cuando esté listo (por ejemplo, la de GitHub Releases). ── */
+/* ── Ligas de descarga: cuando existan las apps de tienda, pon aquí su URL y el botón se activa solo. ── */
 const DOWNLOAD_URL = 'descargas/MB-Task-Setup.exe';
 const VERSION = '1.0.3';
+const APP_STORE_URL = null;     // 'https://apps.apple.com/app/...'
+const PLAY_STORE_URL = null;    // 'https://play.google.com/store/apps/details?id=com.mrbombita.mbtask'
 
-if (DOWNLOAD_URL) {
-  const a = document.getElementById('dlWin');
-  a.href = DOWNLOAD_URL; a.removeAttribute('aria-disabled');
-  a.querySelector('span').textContent = 'Descargar para Windows';
-  document.getElementById('dlMeta').textContent = (VERSION ? 'Versión ' + VERSION + ' · ' : '') + 'Windows 10 y 11 · 64 bits';
-} else {
-  document.getElementById('dlWin').addEventListener('click', e => e.preventDefault());
+function enable(id, url, label, meta) {
+  const a = document.getElementById(id);
+  if (!url) { a.addEventListener('click', e => e.preventDefault()); return; }
+  a.href = url; a.removeAttribute('aria-disabled');
+  const go = a.querySelector('.plat-go'); go.textContent = label; go.setAttribute('data-ok', '');
+  if (meta) a.querySelector('em').textContent = meta;
 }
+enable('dlWin', DOWNLOAD_URL, 'Descargar .exe', (VERSION ? 'Versión ' + VERSION + ' · ' : '') + 'Windows 10 y 11 · 64 bits');
+enable('dlIos', APP_STORE_URL, 'Ver en App Store', 'Disponible');
+enable('dlAndroid', PLAY_STORE_URL, 'Ver en Google Play', 'Disponible');
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 /* temas */
