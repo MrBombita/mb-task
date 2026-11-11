@@ -290,7 +290,12 @@ footer a:hover{color:var(--fg)}
           <span class="plat-tx"><small>PC</small><b>Windows</b><em id="dlMeta">Preparando el instalador…</em></span>
           <span class="plat-go" data-ok>Descargar .exe</span>
         </a>
-        <a class="plat glass" href="app/">
+        <a class="plat glass" id="dlApk" href="#descargar" aria-disabled="true">
+          <span class="plat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V11a7 7 0 0 1 14 0v5"/><path d="M4 16h16v2.5A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5z"/><path d="M7.5 4.5 9 7M16.5 4.5 15 7"/><circle cx="9.5" cy="11.5" r=".6" fill="currentColor"/><circle cx="14.5" cy="11.5" r=".6" fill="currentColor"/></svg></span>
+          <span class="plat-tx"><small>Celular</small><b>Android (APK)</b><em>Preparando el APK…</em></span>
+          <span class="plat-go">Muy pronto</span>
+        </a>
+        <a class="plat glass" href="app/" style="grid-column:1/-1">
           <span class="plat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
           <span class="plat-tx"><small>iPhone, Android y navegador</small><b>App web</b><em>Disponible · se instala desde el navegador</em></span>
           <span class="plat-go" data-ok>Abrir</span>
@@ -308,13 +313,20 @@ footer a:hover{color:var(--fg)}
       </div>
 
       <details class="install glass">
-        <summary>¿Cómo instalo la app web en mi iPhone?</summary>
+        <summary>¿Cómo instalo MB Task en mi celular?</summary>
+        <p><b>Android (APK):</b></p>
+        <ol>
+          <li>Desde tu Android, toca <b>Descargar .apk</b> arriba.</li>
+          <li>Abre el archivo descargado. Si Android lo pide, permite <b>Instalar apps de fuentes desconocidas</b> para Chrome (sale porque no viene de Google Play).</li>
+          <li>Toca <b>Instalar</b>, abre MB Task y entra con tu cuenta. Para actualizar, descarga el APK nuevo e instálalo encima: tus datos se quedan.</li>
+        </ol>
+        <p><b>iPhone (app web):</b></p>
         <ol>
           <li>Abre <b>mrbombita.github.io/mb-task/app</b> en <b>Safari</b>.</li>
           <li>Toca <b>Compartir</b> y luego <b>Agregar a inicio</b>.</li>
           <li>Abre MB Task desde el ícono y entra con tu cuenta.</li>
         </ol>
-        <p>En Android: ábrela en Chrome y toca <b>⋮ → Instalar app</b>.</p>
+        <p>¿Prefieres no instalar el APK? En Android también puedes abrir la app web en Chrome y tocar <b>⋮ → Instalar app</b>.</p>
       </details>
       <div class="note"><b>Si Windows dice "Windows protegió tu PC":</b> da clic en <b>Más información</b> y luego en <b>Ejecutar de todas formas</b>. Sale porque la app todavía no tiene firma digital de pago; no significa que tenga virus.</div>
     </div>
@@ -326,7 +338,7 @@ footer a:hover{color:var(--fg)}
         <details class="glass rv"><summary>¿Cuánto cuesta?</summary><p>Nada. MB Task es gratis.</p></details>
         <details class="glass rv"><summary>¿Necesito internet?</summary><p>No. Tareas, notas, calendario y la bóveda funcionan sin conexión. Sólo necesitas internet para iniciar sesión con tu cuenta.</p></details>
         <details class="glass rv"><summary>¿Necesito crear una cuenta?</summary><p>No es obligatorio: puedes elegir "Seguir sin cuenta" y todo se guarda en ese dispositivo. Con cuenta, tus tareas, notas y contraseñas se sincronizan entre tu PC y tu celular.</p></details>
-        <details class="glass rv"><summary>¿Hay versión para celular?</summary><p>Sí. Las apps para App Store y Google Play vienen pronto; mientras, abre <a href="app/" style="text-decoration:underline">mrbombita.github.io/mb-task/app</a> en tu celular. En iPhone, en Safari toca <b>Compartir → Agregar a inicio</b> y queda como una app. Entra con tu misma cuenta y verás las mismas tareas, tableros y notas que en tu PC.</p></details>
+        <details class="glass rv"><summary>¿Hay versión para celular?</summary><p>Sí. En Android ya puedes instalar el <b>APK</b> desde la sección de descarga. Las apps para App Store y Google Play vienen pronto; en iPhone abre <a href="app/" style="text-decoration:underline">mrbombita.github.io/mb-task/app</a> en tu celular. En iPhone, en Safari toca <b>Compartir → Agregar a inicio</b> y queda como una app. Entra con tu misma cuenta y verás las mismas tareas, tableros y notas que en tu PC.</p></details>
         <details class="glass rv"><summary>¿Qué pasa si olvido la contraseña de la bóveda?</summary><p>No se puede recuperar. Es a propósito: sin tu contraseña y tus dos respuestas, nadie puede abrirla. Anótalas en un lugar seguro.</p></details>
       </div>
     </section>
@@ -342,6 +354,7 @@ footer a:hover{color:var(--fg)}
 /* ── Ligas de descarga: cuando existan las apps de tienda, pon aquí su URL y el botón se activa solo. ── */
 const DOWNLOAD_URL = 'descargas/MB-Task-Setup.exe';
 const VERSION = '1.1.0';
+const APK_URL = 'descargas/MB-Task.apk';
 const APP_STORE_URL = null;     // 'https://apps.apple.com/app/...'
 const PLAY_STORE_URL = null;    // 'https://play.google.com/store/apps/details?id=com.mrbombita.mbtask'
 
@@ -353,6 +366,7 @@ function enable(id, url, label, meta) {
   if (meta) a.querySelector('em').textContent = meta;
 }
 enable('dlWin', DOWNLOAD_URL, 'Descargar .exe', (VERSION ? 'Versión ' + VERSION + ' · ' : '') + 'Windows 10 y 11 · 64 bits');
+enable('dlApk', APK_URL, 'Descargar .apk', (VERSION ? 'Versión ' + VERSION + ' · ' : '') + 'Android 7 o más nuevo');
 enable('dlIos', APP_STORE_URL, 'Ver en App Store', 'Disponible');
 enable('dlAndroid', PLAY_STORE_URL, 'Ver en Google Play', 'Disponible');
 document.getElementById('yr').textContent = new Date().getFullYear();
