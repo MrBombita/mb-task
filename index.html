@@ -354,7 +354,8 @@ footer a:hover{color:var(--fg)}
 /* ── Ligas de descarga: cuando existan las apps de tienda, pon aquí su URL y el botón se activa solo. ── */
 const DOWNLOAD_URL = 'descargas/MB-Task-Setup.exe';
 const VERSION = '1.1.0';
-const APK_URL = 'descargas/MB-Task.apk';
+const APK_VERSION = '1.1.1';
+const APK_URL = 'descargas/MB-Task.apk?v=' + APK_VERSION;
 const APP_STORE_URL = null;     // 'https://apps.apple.com/app/...'
 const PLAY_STORE_URL = null;    // 'https://play.google.com/store/apps/details?id=com.mrbombita.mbtask'
 
@@ -366,7 +367,7 @@ function enable(id, url, label, meta) {
   if (meta) a.querySelector('em').textContent = meta;
 }
 enable('dlWin', DOWNLOAD_URL, 'Descargar .exe', (VERSION ? 'Versión ' + VERSION + ' · ' : '') + 'Windows 10 y 11 · 64 bits');
-enable('dlApk', APK_URL, 'Descargar .apk', (VERSION ? 'Versión ' + VERSION + ' · ' : '') + 'Android 7 o más nuevo');
+enable('dlApk', APK_URL, 'Descargar .apk', 'Versión ' + APK_VERSION + ' · ' + 'Android 7 o más nuevo');
 enable('dlIos', APP_STORE_URL, 'Ver en App Store', 'Disponible');
 enable('dlAndroid', PLAY_STORE_URL, 'Ver en Google Play', 'Disponible');
 document.getElementById('yr').textContent = new Date().getFullYear();
